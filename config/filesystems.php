@@ -38,21 +38,27 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
         'director' => [
             'driver' => 'local',
             'root' => storage_path('app/director'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
         'alumno' => [
             'driver' => 'local',
             'root' => storage_path('app/alumno'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
+        'profesor' => [
+            'driver' => 'local',
+            'root' => storage_path('app/profesor'),
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
