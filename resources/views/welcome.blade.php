@@ -26,8 +26,7 @@
     <br>
     <a href="{{route('alumno_index')}}">Alumnos</a><!--enlace temporal para ir a alumnos -->
 <br>
-<a href="{{route('file_index')}}">Ir a entregas</a><!--enlace temporal para ir a alumnos -->
-<br>
+
 
         <!-- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))

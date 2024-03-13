@@ -55,9 +55,9 @@ class FileController extends Controller
         $nombre_fichero = Auth::id() . '-' . $hoy . '-' . $archivo->getClientOriginalName();
         // dd($nombre_fichero);
         // 3. Insertamos fichero en el disco
-        // Storage::disk('public')->putFileAs(Auth::id(), $archivo, $nombre_fichero);
+        Storage::disk('public')->putFileAs(Auth::id(), $archivo, $nombre_fichero);
         // dd($ruta);
-        $ruta = Storage::disk('profesor')->putFileAs('', $archivo);
+
         // 4. Almacenar ruta en el modelo
         FileModel::create([
             'ruta' => Auth::id() . '/' . $nombre_fichero,
