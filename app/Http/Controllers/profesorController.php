@@ -63,8 +63,8 @@ class profesorController extends Controller
     {
         $validacion = $request->validate([
             'nombre' => 'required|string|max:20',
-            'apellido' => 'string|max:15',
-            'dni' => 'max:9',
+            'apellidos' => 'string|max:15',
+            'DNI' => 'max:9',
             'fecha_nacimiento' => 'required',
             'telefono' => 'max:9'
 
@@ -72,22 +72,22 @@ class profesorController extends Controller
             'nombre.required' => 'Debes insertar un dato',
             'nombre.string' => 'El dato debe ser una cadena de caracteres',
             'nombre.max' => 'Has excedido el numero de caracteres. El maximo es 20',
-            'apellido.string' => 'El dato debe ser una cadena de caracteres',
-            'apellido.max' => 'Has excedido el numero de caracteres. El maximo es 15',
-            'dni.max' => 'Has excedido el numero de caracteres. El maximo es 9',
+            'apellidos.string' => 'El dato debe ser una cadena de caracteres',
+            'apellidos.max' => 'Has excedido el numero de caracteres. El maximo es 15',
+            'DNI.max' => 'Has excedido el numero de caracteres. El maximo es 9',
             'fecha_nacimiento.required' => 'Debes insertar una fecha',
             'telefono.max' => 'Has excedido el numero de caracteres. El maximo es 9'
 
         ]);
         Profesor::create([
             'nombre' => $validacion['nombre'],
-            'apellido' => $validacion['apellido'],
-            'dni' => $validacion['dni'],
+            'apellidos' => $validacion['apellidos'],
+            'DNI' => $validacion['DNI'],
             'fecha_nacimiento' => $request->fecha_nacimiento,
             'telefono' => $validacion['telefono']
 
         ]);
-        return redirect()->route('profesores-index');
+        return redirect()->route('profesor_index');
 
     }
 
@@ -126,8 +126,8 @@ class profesorController extends Controller
         $profesor = Profesor::find($id);
         $profesor->update([
             'nombre' => $request->nombre,
-            'apellido' => $request->apaellido,
-            'DNI' => $request->dni,
+            'apellidos' => $request->apaellido,
+            'DNI' => $request->DNI,
             'fecha_nacimiento' => $request->fecha_nacimiento,
             'telefono' => $request->telefono,
 
@@ -145,6 +145,6 @@ class profesorController extends Controller
     {
         Profesor::destroy($id);
 
-        return redirect()->route('profesor-index');
+        return redirect()->route('profesor_index');
     }
 }

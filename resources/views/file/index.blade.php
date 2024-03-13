@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                   <form action="{{ route('files-store') }}" method="POST" enctype="multipart/form-data">
+                   <form action="{{ route('file_store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="file" name="fichero">
                         <button class="btn btn-primary" type="submit">Subir fichero</button>
@@ -24,7 +24,6 @@
         </div>
     </div>
 </div>
-<h1>index</h1>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -47,13 +46,13 @@
                             <th scope="col"></th>
                     </thead>
                     <tbody>
-                   @foreach ($files as $f)
+                   @foreach ($file as $f)
                    <tr>
                     <th scope="row">{{ $f->id }}</th>
-                    <th><img style="width: 200px;" src="{{ asset('storage/'.$f->ruta) }}"></th>
+                    <th><img style="width: 200px;" src="{{ asset('storage/' . $f->ruta) }}"></th>
                     <th scope="row">{{ $f->user_id }}</th>
                     <th scope="col">
-                        <form method="POST" action="{{ route('files-destroy', $f->id) }}" id="formularioEliminar">
+                        <form method="POST" action="{{ route('file_destroy', $f->id) }}" id="formularioEliminar">
                             @csrf 
                             @method('delete')
                             <input class ="btn btn-danger"type="submit" value="Eliminar">                                        

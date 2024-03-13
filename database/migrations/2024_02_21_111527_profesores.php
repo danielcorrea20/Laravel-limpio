@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Files extends Migration
+class Profesores extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class Files extends Migration
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('profesores', function (Blueprint $table) {
             $table->id();
-
-            $table->string('ruta');
-            $table->bigInteger('user_id')->unsigned();
-
+            $table->string('nombre');
+            $table->string('apellidos');
+            $table->string('DNI');
+            $table->timestamp('fecha_nacimiento');
+            $table->string('telefono');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
-
         });
     }
 
@@ -33,6 +31,6 @@ class Files extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('files');
+        Schema::dropIfExists('profesores');
     }
 }

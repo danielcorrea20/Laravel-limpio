@@ -21,7 +21,15 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+
+    <a href="{{route('profesor_index')}}">Profesores</a><!--enlace temporal para ir a profesores -->
+    <br>
+    <a href="{{route('alumno_index')}}">Alumnos</a><!--enlace temporal para ir a alumnos -->
+<br>
+<a href="{{route('file_index')}}">Ir a entregas</a><!--enlace temporal para ir a alumnos -->
+<br>
+
+        <!-- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
@@ -44,11 +52,6 @@
                         </g>
                     </svg>
                 </div>
-                <a style="color:white" href="{{ route('coches-index') }}">IR A COCHES</a>
-                <br>
-                <a style="color:white" href="{{ route('coches-create') }}">IR A COCHES CREATE</a>
-                <br>
-                <a style="color:white" href="{{ route('coches-edit', 5) }}">IR A COCHES EDIT</a>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
@@ -132,6 +135,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </body>
 </html>

@@ -34,16 +34,16 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">apellido</label>
-                    <input name="apellido" value="{{ old('apellido') }}"type="text" class="form-control" id="exampleFormControlInput1" placeholder="Fontan">
-                    @error('apellido')
+                    <label for="exampleFormControlInput1" class="form-label">apellidos</label>
+                    <input name="apellidos" value="{{ old('apellidos') }}"type="text" class="form-control" id="exampleFormControlInput1" placeholder="Fontan">
+                    @error('apellidos')
                         <p style="color:red">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">DNI</label>
-                    <input name="dni" value="{{ old('dni') }}"type="text" class="form-control" id="exampleFormControlInput1" placeholder="11850755M">
-                    @error('dni')
+                    <input name="DNI" value="{{ old('DNI') }}"type="text" class="form-control" id="exampleFormControlInput1" placeholder="11850755M">
+                    @error('DNI')
                         <p style="color:red">{{ $message }}</p>
                     @enderror
                 </div>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Teléfono</label>
-                    <input name="telefono" type="date" value="{{ old('telefono') }}"class="form-control" id="exampleFormControlInput1" placeholder="12345">
+                    <input name="telefono" type="number" value="{{ old('telefono') }}"class="form-control" id="exampleFormControlInput1" placeholder="12345">
                     @error('telefono')
                         <p style="color:red">{{ $message }}</p>
                     @enderror

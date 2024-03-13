@@ -73,6 +73,16 @@ Route::prefix('/entrega')->group(function () {
     Route::post('/update/{id}', [App\Http\Controllers\entregaController::class, 'update'])->name('entrega_update');
     Route::get('/delete/{id}', [App\Http\Controllers\entregaController::class, 'delete'])->name('entrega_delete');
 });
+
+Route::prefix('/file')->group(function () {
+    Route::get('/index', [App\Http\Controllers\FileController::class, 'index'])->name('file_index');
+    Route::post('/store', [App\Http\Controllers\FileController::class, 'store'])->name('file_store');
+    Route::get('/create', [App\Http\Controllers\FileController::class, 'create'])->name('file_create');
+    Route::get('/edit/{id}', [App\Http\Controllers\FileController::class, 'edit'])->name('file_edit');
+    Route::post('/update/{id}', [App\Http\Controllers\FileController::class, 'update'])->name('file_update');
+    Route::delete('/delete/{id}', [App\Http\Controllers\FileController::class, 'destroy'])->name('file_destroy');
+});
+
 Route::prefix('/grupo')->group(function () {
     Route::post('/store', [App\Http\Controllers\grupoController::class, 'store'])->name('grupo_store');
     Route::get('/create', [App\Http\Controllers\grupoController::class, 'create'])->name('grupo_create');
@@ -86,7 +96,7 @@ Route::prefix('/profesor')->group(function () {
     Route::get('/create', [App\Http\Controllers\profesorController::class, 'create'])->name('profesor_create');
     Route::get('/edit/{id}', [App\Http\Controllers\profesorController::class, 'edit'])->name('profesor_edit');
     Route::post('/update/{id}', [App\Http\Controllers\profesorController::class, 'update'])->name('profesor_update');
-    Route::get('/delete/{id}', [App\Http\Controllers\profesorController::class, 'delete'])->name('profesor_delete');
+    Route::delete('/delete/{id}', [App\Http\Controllers\profesorController::class, 'destroy'])->name('profesor_destroy');
 });
 
 Auth::routes();//Aqui me salta error en VSCode pero la página se lanza (Jorge)

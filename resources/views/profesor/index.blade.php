@@ -47,7 +47,7 @@
                     @csrf @method('delete')
                     <input class ="btn btn-danger"type="submit" id="eliminarFicha"  value="Eliminar">                                        
                 </form>
-                <a class ="btn btn-warning" href="{{ route('profesor-edit', $profesor->id) }}">  Editar </a>
+                <a class ="btn btn-warning" href="{{ route('profesor_edit', $profesor->id) }}">  Editar </a>
                 </td>
             </tr>
             @endforeach

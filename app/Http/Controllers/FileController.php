@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\FileModel;
 use Carbon\Carbon;
- 
+
 class FileController extends Controller
 {
     /**
@@ -19,9 +19,9 @@ class FileController extends Controller
     public function index()
     {
         // Recoger todos los ficheros pertenecientes al usario logueado
-        $files = FileModel::where('user_id', '=', Auth::id())->get();
+        $file = FileModel::where('user_id', '=', Auth::id())->get();
         // dd($files);
-        return view('files.index', compact('files'));
+        return view('file.index', compact('file'));
     }
 
     /**
@@ -52,19 +52,19 @@ class FileController extends Controller
         // dd($archivo->getClientOriginalName());
         // exit();
         $hoy = Carbon::now()->format('Y-m-d-h-m-s');
-        $nombre_fichero = Auth::id().'-'.$hoy.'-'.$archivo->getClientOriginalName();
+        $nombre_fichero = Auth::id() . '-' . $hoy . '-' . $archivo->getClientOriginalName();
         // dd($nombre_fichero);
         // 3. Insertamos fichero en el disco
-        Storage::disk('public')->putFileAs(Auth::id(), $archivo, $nombre_fichero);
+        // Storage::disk('public')->putFileAs(Auth::id(), $archivo, $nombre_fichero);
         // dd($ruta);
-
+        $ruta = Storage::disk('profesor')->putFileAs('', $archivo);
         // 4. Almacenar ruta en el modelo
         FileModel::create([
-            'ruta' => Auth::id().'/'.$nombre_fichero,
+            'ruta' => Auth::id() . '/' . $nombre_fichero,
             'user_id' => Auth::id()
         ]);
-        
-        return redirect()->route('files-index');
+
+        return redirect()->route('file_index');
     }
 
     /**
@@ -114,6 +114,6 @@ class FileController extends Controller
         Storage::disk('public')->delete($file->ruta);
         // dd($file->ruta);
         FileModel::destroy($id);
-        return redirect()->route('files-index');
+        return redirect()->route('file_index');
     }
 }
