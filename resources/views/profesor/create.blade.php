@@ -11,11 +11,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <h1>coches CREATE</h1>
+    <h1>profesor CREATE</h1>
     <main class="flex-container">
-        <a href="{{ route('coches-index') }}" class="btn btn-secondary">Atras</a>
+        <a href="{{ route('profesor_index') }}" class="btn btn-secondary">Atras</a>
         <div id="main" class="row">
-            <form action="{{ route('coches-store') }}" method="POST">
+            <form action="{{ route('profesor_store') }}" method="POST">
                 @csrf <!-- {{ csrf_field() }} -->
                 @if($errors->any())
                     <div class="alert alert-danger">
@@ -27,38 +27,40 @@
                     </div>
                 @endif
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Marca</label>
-                    <input name="marca" value="{{ old('marca') }}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Sergio">
-                    @error('marca')
+                    <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                    <input name="nombre" value="{{ old('nombre') }}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Sergio">
+                    @error('nombre')
                         <p style="color:red">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">modelo</label>
-                    <input name="modelo" value="{{ old('modelo') }}"type="text" class="form-control" id="exampleFormControlInput1" placeholder="Fontan">
-                    @error('modelo')
+                    <label for="exampleFormControlInput1" class="form-label">apellido</label>
+                    <input name="apellido" value="{{ old('apellido') }}"type="text" class="form-control" id="exampleFormControlInput1" placeholder="Fontan">
+                    @error('apellido')
                         <p style="color:red">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Fecha de Matriculacion</label>
-                    <input name="fecha_matriculacion" type="date" value="{{ old('fecha_matriculacion') }}"class="form-control" id="exampleFormControlInput1" placeholder="12345">
-                    @error('fecha_matriculacion')
+                    <label for="exampleFormControlInput1" class="form-label">DNI</label>
+                    <input name="dni" value="{{ old('dni') }}"type="text" class="form-control" id="exampleFormControlInput1" placeholder="11850755M">
+                    @error('dni')
                         <p style="color:red">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Usuario</label>
-                    <input name="user_id" type="number" value="{{ old('user_id') }}"class="form-control" id="exampleFormControlInput1" placeholder="500">
-                    @error('user_id')
+                    <label for="exampleFormControlInput1" class="form-label">Fecha de Nacimiento</label>
+                    <input name="fecha_nacimiento" type="date" value="{{ old('fecha_nacimiento') }}"class="form-control" id="exampleFormControlInput1" placeholder="12345">
+                    @error('fecha_nacimiento')
                         <p style="color:red">{{ $message }}</p>
                     @enderror
                 </div>
-                <select  class="js-example-basic-single" name="user_id_2">
-                    @foreach($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                    @endforeach
-                </select>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Teléfono</label>
+                    <input name="telefono" type="date" value="{{ old('telefono') }}"class="form-control" id="exampleFormControlInput1" placeholder="12345">
+                    @error('telefono')
+                        <p style="color:red">{{ $message }}</p>
+                    @enderror
+                </div>
                 <br>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>

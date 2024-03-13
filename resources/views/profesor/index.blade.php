@@ -19,40 +19,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-<a href="{{ route('coches-create') }}" class="btn btn-secondary">Crear</a>
+<a href="{{ route('profesor_create') }}" class="btn btn-secondary">Crear</a>
     <table id="example1" class="table">
     <thead>
         <tr>
         <th scope="col">ID</th>
-        <th scope="col">MArca</th>
-        <th scope="col">Modelo</th>
-        @role('Alumno')
-            <th scope="col">Fecha</th>
-        @endrole
-        @role('Profesor')
-            <th scope="col">Usuario</th>
-        @endrole
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">DNI</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Teléfono</th>
         <th scope="col">ACCIONES</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($coches as $coche)
+        @foreach ($profesores as $profesor)
             <tr>
-                <th scope="row">{{ $coche->id }}</th>
-                <td>{{ $coche->marca }}</td>
-                <td>{{ $coche->modelo }}</td>
-                @role('Alumno')
-                    <td>{{ $coche->fecha_matriculacion }}</td>
-                @endrole
-                @role('Profesor')
-                    <td>{{ $coche->user_id }}</td>
-                @endrole
+                <th scope="row">{{ $profesor->id }}</th>
+                <td>{{ $profesor->nombre }}</td>
+                <td>{{ $profesor->apaellido }}</td>
+                <td>{{ $profesor->dni }}</td>
+                <td>{{ $profesor->fecha_nacimiento }}</td>
+                <td>{{ $profesor->telefono }}</td>
+           
                 <td>
-                <form method="POST" action="{{ route('coches-destroy', $coche->id) }}" id="formularioEliminar">
+                <form method="POST" action="{{ route('profesor_destroy', $profesor->id) }}" id="formularioEliminar">
                     @csrf @method('delete')
                     <input class ="btn btn-danger"type="submit" id="eliminarFicha"  value="Eliminar">                                        
                 </form>
-                <a class ="btn btn-warning" href="{{ route('coches-edit', $coche->id) }}">  Editar </a>
+                <a class ="btn btn-warning" href="{{ route('profesor-edit', $profesor->id) }}">  Editar </a>
                 </td>
             </tr>
             @endforeach
