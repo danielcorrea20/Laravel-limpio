@@ -20,7 +20,7 @@ class FileController extends Controller
     {
         // Recoger todos los ficheros pertenecientes al usario logueado
         $file = FileModel::where('user_id', '=', Auth::id())->get();
-        // dd($files);
+        // dd($file);
         return view('file.index', compact('file'));
     }
 

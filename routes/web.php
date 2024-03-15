@@ -95,7 +95,7 @@ Route::prefix('/profesor')->group(function () {
     Route::post('/store', [App\Http\Controllers\profesorController::class, 'store'])->name('profesor_store');
     Route::get('/create', [App\Http\Controllers\profesorController::class, 'create'])->name('profesor_create');
     Route::get('/edit/{id}', [App\Http\Controllers\profesorController::class, 'edit'])->name('profesor_edit');
-    Route::post('/update/{id}', [App\Http\Controllers\profesorController::class, 'update'])->name('profesor_update');
+    Route::put('/update/{id}', [App\Http\Controllers\profesorController::class, 'update'])->name('profesor_update');
     Route::delete('/delete/{id}', [App\Http\Controllers\profesorController::class, 'destroy'])->name('profesor_destroy');
 });
 

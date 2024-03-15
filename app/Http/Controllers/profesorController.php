@@ -29,7 +29,7 @@ class profesorController extends Controller
         if (auth()->user()->hasRole('Profesor')) {
             $profesores = Profesor::orderByDesc('nombre')->get();
         } else if (auth()->user()->hasRole('Alumno')) {
-            $profesores = Profesor::where('id', '<', 3)->orderByDesc('nombre')->get();
+            $alumnos = Profesor::where('id', '<', 3)->orderByDesc('nombre')->get();
         } else {
             $profesores = Profesor::orderByDesc('nombre')->get();
         }
@@ -126,13 +126,13 @@ class profesorController extends Controller
         $profesor = Profesor::find($id);
         $profesor->update([
             'nombre' => $request->nombre,
-            'apellidos' => $request->apaellido,
+            'apellidos' => $request->apellidos,
             'DNI' => $request->DNI,
             'fecha_nacimiento' => $request->fecha_nacimiento,
             'telefono' => $request->telefono,
 
         ]);
-        return redirect()->route('profesor-index');
+        return redirect()->route('profesor_index');
     }
 
     /**

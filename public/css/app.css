@@ -11977,3 +11977,7 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+#titulo{
+  color: red;
+  text-align: center;
+}

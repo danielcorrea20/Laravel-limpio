@@ -18,6 +18,7 @@
                         @csrf
                         <input type="file" name="fichero">
                         <button class="btn btn-primary" type="submit">Subir fichero</button>
+                        <a href="{{ route('profesor_index') }}" class="btn btn-secondary">Atras</a>
                    </form>
                 </div>
             </div>
@@ -47,6 +48,7 @@
                     </thead>
                     <tbody>
                    @foreach ($file as $f)
+                   
                    <tr>
                     <th scope="row">{{ $f->id }}</th>
                     <th><img style="width: 200px;" src="{{ asset('storage/' . $f->ruta) }}"></th>
